@@ -13,15 +13,7 @@ const colunas = {
         type: Sequelize.STRING,
         allowNull: false
     },
-    estado: {
-        type: Sequelize.STRING,
-        allowNull: false
-    },
-    cidade:{
-        type: Sequelize.STRING,
-        allowNull : false
-    },
-    servico:{
+    endereco: {
         type: Sequelize.STRING,
         allowNull: false
     },
@@ -36,7 +28,15 @@ const colunas = {
     whatsapp:{
         type: Sequelize.INTEGER,
         allowNull : false
-    }
+    },
+    urlLog:{
+        type: Sequelize.STRING,
+        allowNull : false       
+    },
+    site:{
+        type: Sequelize.STRING,
+        allowNull : true
+    },
     // preciso de mais informacoes do que tera nos colaboradores
 
 } 
