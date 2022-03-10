@@ -9,9 +9,11 @@ app.use(bodyParser.json())
 
 const roteadorColaborador = require('./rotas/colaboradores')
 const roteadorEmpresa = require('./rotas/empresas')
+const roteadorEmpresaServico = require('./rotas/empresa-servico')
 
 app.use('/api/colaboradores', roteadorColaborador)
 app.use('/api/empresas', roteadorEmpresa)
+app.use('/api/empresaServico',roteadorEmpresaServico)
 
 
 
