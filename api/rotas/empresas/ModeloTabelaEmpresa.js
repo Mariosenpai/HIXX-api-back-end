@@ -17,6 +17,10 @@ const colunas = {
         type: Sequelize.STRING,
         allowNull: false
     },
+    cidade:{
+        type: Sequelize.STRING,
+        allowNull : false
+    },
     servico:{
         type: Sequelize.STRING,
         allowNull: false
@@ -34,7 +38,6 @@ const colunas = {
         allowNull : false
     }
     // preciso de mais informacoes do que tera nos colaboradores
-
 
 } 
 
