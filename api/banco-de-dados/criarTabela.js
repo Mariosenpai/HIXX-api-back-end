@@ -4,17 +4,17 @@ const ModeloTabelaServico = require('../modelos/servico.js')
 const ModeloTabelaEmpresaServico = require('../rotas/empresa-servico/ModeloTabelaEmpresaServico')
 
 ModeloTabelaEmpresa
-    .sync({force:true})
+    .sync()
     .then( () => console.log("Tabela Empresa criada com sucesso"))
     .catch(console.log)
 
 ModeloTabelaServico
-    .sync({force:true})
+    .sync()
     .then( () => console.log("Tabela Servico criada com sucesso"))
     .catch(console.log)
 
 ModeloTabelaEmpresaServico
-    .sync({force:true})
+    .sync()
     .then( () => console.log("Tabela EmpresaServico criada com sucesso"))
     .catch(console.log)
 
