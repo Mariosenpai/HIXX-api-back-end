@@ -15,6 +15,6 @@ app.use('/api/colaboradores', roteadorColaborador)
 app.use('/api/empresas', roteadorEmpresa)
 app.use('/api/empresaServico',roteadorEmpresaServico)
 
-const PORTA = process.env.DATABASE_URL || config.get('api.porta')
+const PORTA = process.env.PORT || config.get('api.porta')
 
 app.listen(PORTA, () => console.log('Funcionando'))
