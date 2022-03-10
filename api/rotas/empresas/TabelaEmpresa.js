@@ -4,6 +4,12 @@ module.exports = {
     listar(){
         return modelo.findAll()
     },
+    listarPorJSON(Object){
+        return modelo.findAll({
+            order: [['id', 'DESC']],//ordena pelo id de forma decrescente 
+            where: Object
+        })
+    },
     inserir(empresa){
         return modelo.create(empresa)
     },

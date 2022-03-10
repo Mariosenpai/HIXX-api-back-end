@@ -13,7 +13,27 @@ roteador.get('/', async (requisicao , resposta) => {
     )    
 })
 
-//add novo colaborador
+
+//pesquisa avançada onde ela receber um json com as informacoes que desejam ser buscadas
+roteador.post('/pesquisaAvancada/', async (requisicao , resposta) => {
+    try{
+        const dadosRecebidos = requisicao.body
+        const resultados = await TabelaEmpresa.listarPorJSON(dadosRecebidos)
+        resposta.status(201)
+        resposta.send(
+            JSON.stringify(resultados)
+        )    
+    }catch(erro){
+        resposta.send(
+            JSON.stringify({
+                mensagem: erro.message
+            })
+        )
+    }
+})
+
+
+//add nova empresa
 roteador.post('/', async (requisicao , resposta)=>{
     try{
         const dadosRecebidos = requisicao.body
