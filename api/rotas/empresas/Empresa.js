@@ -2,10 +2,11 @@ const TabelaColaborador = require('./TabelaEmpresa')
 
 class Colaborador {
     
-    constructor({ id, nome , estado,servico,numeroContato ,email , whatsapp  , dataCriacao,dataAtualizacao,versao }){
+    constructor({ id, nome , estado,cidade,servico,numeroContato ,email , whatsapp  , dataCriacao,dataAtualizacao,versao }){
             this.id =id
             this.nome = nome
             this.estado = estado
+            this.cidade = cidade
             this.servico = servico 
             this.numeroContato = numeroContato 
             this.email = email 
@@ -17,7 +18,7 @@ class Colaborador {
     }
 
     validar(){
-        const campos_tabala = ['nome', 'estado', 'servico', 'numeroContato' , 'email' , 'whatsapp']
+        const campos_tabala = ['nome', 'estado','cidade',  'servico', 'numeroContato' , 'email' , 'whatsapp']
 
         campos_tabala.forEach(index =>{
             const valor = this[index]
@@ -25,7 +26,9 @@ class Colaborador {
             if ((typeof valor !== 'string' || valor.length === 0 ) && index === 'nome'){
                 throw new Error(`O campo '${index}' esta invalido`)
             }else if ((typeof valor !== 'string' || valor.length === 0 ) && index === 'estado'){
-                throw new Error(`O campo '${index}' esta invalido`)           
+                throw new Error(`O campo '${index}' esta invalido`)
+            }else if ((typeof valor !== 'string' || valor.length === 0 ) && index === 'cidade'){
+                throw new Error(`O campo '${index}' esta invalido`)              
             }else if ((typeof valor !== 'string' || valor.length === 0 ) && index === 'servico'){
                 throw new Error(`O campo '${index}' esta invalido`)      
             }else if ((typeof valor !== 'number' || valor.length === 0 ) && index === 'numeroContato'){
@@ -46,6 +49,7 @@ class Colaborador {
         const resultado = await TabelaColaborador.inserir({
             nome: this.nome,
             estado: this.estado,
+            cidade: this.cidade,
             servico: this.servico,
             numeroContato: this.numeroContato,
             email: this.email,
@@ -72,7 +76,7 @@ class Colaborador {
 
     async atualizar(){
         await TabelaColaborador.getId(this.id)
-        const campos_tabala = ['nome', 'estado', 'servico', 'numeroContato' , 'email' , 'whatsapp']
+        const campos_tabala = ['nome', 'estado', 'cidade' ,'servico', 'numeroContato' , 'email' , 'whatsapp']
         const dadosParaAtualizar = {}
 
         campos_tabala.forEach(index =>{
@@ -81,7 +85,9 @@ class Colaborador {
             if ((typeof valor !== 'string' || valor.length === 0 ) && index === 'nome'){
                 dadosParaAtualizar[index] = valor
             }else if ((typeof valor !== 'string' || valor.length === 0 ) && index === 'estado'){
-                dadosParaAtualizar[index] = valor      
+                dadosParaAtualizar[index] = valor 
+            }else if ((typeof valor !== 'string' || valor.length === 0 ) && index === 'cidade'){
+                throw new Error(`O campo '${index}' esta invalido`)        
             }else if ((typeof valor !== 'string' || valor.length === 0 ) && index === 'servico'){
                 dadosParaAtualizar[index] = valor 
             }else if ((typeof valor !== 'number' || valor.length === 0 ) && index === 'numeroContato'){
