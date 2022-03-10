@@ -22,7 +22,7 @@ module.exports = {
         return modelo.findAll({
             order: [['id', 'DESC']],//ordena pelo id de forma decrescente 
             where: Object,
-            include:[
+            include:[//pega referencia dos objetos nas outras tabelas trazendo os atributos q eu preciso
                 {
                     attributes: ['nome'],
                     model: servico

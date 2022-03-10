@@ -15,6 +15,6 @@ app.use('/api/colaboradores', roteadorColaborador)
 app.use('/api/empresas', roteadorEmpresa)
 app.use('/api/empresaServico',roteadorEmpresaServico)
 
+const PORTA = process.env.PORTA || config.get('api.porta')
 
-
-app.listen(config.get('api.porta'), () => console.log('Funcionando'))
+app.listen(PORTA, () => console.log('Funcionando'))
