@@ -13,17 +13,18 @@ const config = require('config')
 
 // )
 
-const instancia = new Sequelize(
-    process.env.DATABASE,
-    process.env.USER,
-    process.env.SENHA,
-    {
-        host: process.env.HOST,
-        dialect: 'postgres',
-        port: process.env.PORT
-    }
-
-)
-
-
-module.exports = instancia
+const sequelize = new Sequelize(process.env.DATABASE_URL, {
+    dialectOptions: {
+      ssl: {
+        rejectUnauthorized: false,
+      },
+    },
+  });
+  
+  //check connection (optional)
+sequelize
+    .authenticate()
+    .then(() => console.log("Connection has been established successfully."))
+    .catch((err) => console.error("Unable to connect to the database:", err));
+  
+module.exports = sequelize;
