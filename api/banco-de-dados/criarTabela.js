@@ -1,7 +1,7 @@
 const ModeloTabelaColaborador = require('../rotas/colaboradores/ModeloTabelaColaborador')
-const ModeloTabelaEmpresa = require('../rotas/empresas/ModeloTabelaEmpresa')
+const ModeloTabelaEmpresa = require('../modelos/empresa')
 const ModeloTabelaServico = require('../modelos/servico.js')
-const ModeloTabelaEmpresaServico = require('../rotas/empresa-servico/ModeloTabelaEmpresaServico')
+const ModeloTabelaEmpresaServico = require('../modelos/empresaServico')
 
 ModeloTabelaEmpresa
     .sync()
