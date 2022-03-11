@@ -1,30 +1,36 @@
 const Sequelize = require('sequelize')
 const config = require('config')
 
-// const instancia = new Sequelize(
-//     config.get('postgres.banco-de-dados'),
-//     config.get('postgres.usuario'),
-//     config.get('postgres.senha'),
-//     {
-//         host: config.get('postgres.host'),
-//         dialect: 'postgres',
-//         port: config.get('postgres.porta')
-//     }
 
-// )
+let instancia
 
-const sequelize = new Sequelize(process.env.DATABASE_URL, {
-    dialectOptions: {
-      ssl: {
-        rejectUnauthorized: false,
+if( process.env.NODE_ENV === "production"){
+  instancia = new Sequelize(process.env.DATABASE_URL, {
+      dialectOptions: {
+        ssl: {
+          rejectUnauthorized: false,
+        },
       },
-    },
-  });
-  
-  //check connection (optional)
-sequelize
-    .authenticate()
-    .then(() => console.log("Connection has been established successfully."))
-    .catch((err) => console.error("Unable to connect to the database:", err));
-  
-module.exports = sequelize;
+    });
+    
+    //check connection (optional)
+    instancia
+      .authenticate()
+      .then(() => console.log("Connection has been established successfully."))
+      .catch((err) => console.error("Unable to connect to the database:", err));
+}else{
+  instancia = new Sequelize(
+    config.get('postgres.banco-de-dados'),
+    config.get('postgres.usuario'),
+    config.get('postgres.senha'),
+    {
+        host: config.get('postgres.host'),
+        dialect: 'postgres',
+        port: config.get('postgres.porta')
+    }
+
+  )
+}
+
+
+module.exports = instancia;
