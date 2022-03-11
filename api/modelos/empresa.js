@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize')
-const instancia = require('../../banco-de-dados')//conexão
+const instancia = require('../banco-de-dados')//conexão
 
 //colunas no banco de dados
 const colunas = {

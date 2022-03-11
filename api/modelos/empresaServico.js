@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize')
-const instancia = require('../../banco-de-dados')//conexão
-const servico = require('../../modelos/servico')
-const empresa = require('../empresas/ModeloTabelaEmpresa')
+const instancia = require('../banco-de-dados')//conexão
+const servico = require('./servico')
+const empresa = require('./empresa')
 
 //colunas no banco de dados
 const colunas = {
