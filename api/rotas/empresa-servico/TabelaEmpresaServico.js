@@ -1,6 +1,6 @@
-const modelo = require('./ModeloTabelaEmpresaServico')
+const modelo = require('../../modelos/empresaServico')
 const servico = require('../../modelos/servico')
-const empresa = require('../empresas/ModeloTabelaEmpresa')
+const empresa = require('../../modelos/empresa')
 
 module.exports = {
     listar(){
